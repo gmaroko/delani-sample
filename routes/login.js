@@ -2,11 +2,13 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get("/login", (req, res)=>{
-    console.log("Home page accessed.");
-    let data = "Eliud Gateri"
+router.get("/login", (req, res, next)=>{
+
+    let data = "Enter your Credentials to Login!"
+
     res.render("login", {title: "Login Page", data: data});
     res.end();
+    next();
 });
 
 router.post("/login", (req, res)=>{
